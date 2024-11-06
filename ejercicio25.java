@@ -6,6 +6,15 @@ public class ejercicio25 {
             do {
                 System.out.println("Escriba un numero");
                 numero = scanner.nextInt();
+                System.out.println("Opcion " + numero + " ejecutada");
+
+                System.out.println("1. Numero uno");
+                System.out.println("2. Numero dos");
+                System.out.println("3. Numero tres");
+                System.out.println("4. Numero cuatro");
+                System.out.println("5. Numero cinco");
+                System.out.println("6. Numero seis");
+                System.out.println("7. Salir");
 
                 switch (numero) {
                     case 1 -> System.out.println("Ha ingresado el numero Uno");
