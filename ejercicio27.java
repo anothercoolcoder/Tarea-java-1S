@@ -3,7 +3,6 @@ public class ejercicio27 {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             int numero;
-            int avisador = 0;
             do {
                 System.out.println("Escriba un numero entre 0 y 9");
                 numero = scanner.nextInt();
@@ -28,11 +27,12 @@ public class ejercicio27 {
                     case 8 -> System.out.println("Estuve en la isla gorgona");
                 
                     default -> {
-                        avisador = avisador +1;
+                        
                     }
                 } 
-            } while (avisador == 0);
-            System.out.println("Ha escrito un valor erroneo");
+            } while (  numero < 9
+                    && numero > 0);
+            System.out.println("Fin del programa");
         }
     }
 }
