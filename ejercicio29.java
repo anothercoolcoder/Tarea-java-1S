@@ -15,7 +15,7 @@ public class ejercicio29 {
                 }
             }
             
-            System.out.println("El resultado es: " + resultado);
+            System.out.println(base + " elevado a " + exponente + " es igual a " + resultado);
         }
 
     }
