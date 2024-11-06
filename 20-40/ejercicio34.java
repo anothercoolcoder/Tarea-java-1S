@@ -36,9 +36,9 @@ public class ejercicio34 {
         }
 
         if (primo){
-            System.out.println( temp + " Si cumple, porque "+ cifras + " = "+ suma +", "+ suma+  " Si es primo" );
+            System.out.println( temp + " Si cumple, porque "+ cifras + " = "+ suma +", "+ suma +  " Si es primo" );
         } else {
-            System.out.println( temp + " No cumple, porque "+ cifras + " = "+ suma +", "+ suma+  " no es primo" );
+            System.out.println( temp + " No cumple, porque "+ cifras + " = "+ suma +", "+ suma +  " no es primo" );
         }
     }
 }
