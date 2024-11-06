@@ -4,17 +4,25 @@ public class ejercicio34 {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Ingrese un numero");
             int numero = scanner.nextInt();
-            int suma = 0;
-            while ( numero > 0) {
-                suma = suma + numero % 10;
-                numero = numero /10;
-            }        
-            esPrimo(suma);
+            operacion(numero);
         }
     }
-    public static void esPrimo(int n){
+    public static void operacion(int n){
         boolean primo = true;
-
+        int temp = n;
+        int suma = 0;
+        //cifras y sumita, papa
+        String cifras = "";
+        while ( n > 0) {
+            suma = suma + n %10;
+            int digito = n % 10;
+            cifras = digito + "+" + cifras;
+            n = n /10;
+        }
+        if(cifras.endsWith("+")) {
+            cifras = cifras.substring(0, cifras.length() - 1);
+        }
+        // primo
         if (n <= 1) {
             primo = false;
 
@@ -26,10 +34,11 @@ public class ejercicio34 {
                 }
             }
         }
+
         if (primo){
-            System.out.println("Es un numero primo");
+            System.out.println( temp + " Si cumple, porque "+ cifras + " = "+ suma +", "+ suma+  " Si es primo" );
         } else {
-            System.out.println("No es un numero primo");
+            System.out.println( temp + " No cumple, porque "+ cifras + " = "+ suma +", "+ suma+  " no es primo" );
         }
     }
 }
