@@ -2,31 +2,30 @@ import java.util.Scanner;
 public class ejercicio {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)){
-            System.out.println("Hello world");
-        System.out.println("Digite un numero entero");
+            
+        System.out.println("Hello world. ");
+        System.out.println("Enter a whole number: ");
         int x = sc.nextInt();
-        // 5
-        System.out.println("El valor digitado es: " + x);
+
+        // even number or not
+        System.out.println("The value entered is: " + x);
         if (x%2==0){
-            System.out.println("El numero es par");
+            System.out.println("The number entered is even ");
         } else {
-            System.out.println("El numero no es par");
+            System.out.println("The number entered is not even ");
         }
+        // prime number
         int p=0;
         for (int i = 2; i <= (x/2); i++) {
             if (x % i == 0){
                 p=p+1;
-                
             }
-            if (p=1){
-                
-            }
-
-                
-                        
-               }  
-        
-        } 
+        }
+        if (p == 0){
+            System.out.println("Is a prime number. ");
+        }else {
+            System.out.println("Is not a prime number. ");
+        }
     }
-
+    }
 }
