@@ -1,9 +1,10 @@
 import java.util.Scanner;
-public class Main {
+public class tenis {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
         while (sc.hasNextLine()) {
+            System.out.println("Escriba la secuencia");
             String secuencia = sc.nextLine();
             if (secuencia.isEmpty()) break;
             
