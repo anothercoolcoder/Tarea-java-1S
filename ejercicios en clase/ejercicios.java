@@ -6,14 +6,8 @@ public class ejercicios{
         System.out.println("Enter a whole number: ");
 
         int x = sc.nextInt();
-        int contador = 0;
-        for (int i = 2; i <= x - 1; i++) {
-            if (x % i ==0){
-                contador++;
-            }
-        }
-
-        int[] arreglo = new int[contador];
+        
+        int[] arreglo = new int[contador(x)];
 
         System.out.println("The value entered is: " + x);
         if (x%2==0){
@@ -37,7 +31,7 @@ public class ejercicios{
         else {
             int index = 0;
             System.out.println (x + " It's not a prime number");
-            for (int i = 2; i <= x - 1; i++) {
+            for (int i = 2; i <= x; i++) {
                 if (x % i ==0){
                     arreglo[index] = i;
                     index++;
@@ -50,5 +44,15 @@ public class ejercicios{
         }
      
     }
+    }
+
+    public static int contador(int x) {
+        int contador = 0;
+        for (int i = 2; i <= x; i++) {
+            if (x % i ==0){
+                contador++;
+            }
+        }
+        return contador;
     }
 }
