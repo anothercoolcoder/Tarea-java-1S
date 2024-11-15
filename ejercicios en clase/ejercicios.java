@@ -24,7 +24,7 @@ public class ejercicios{
         }
         if (p == 0){
             System.out.println(x + " It's a prime number");
-            for (int i = 1; i < 10; i++) {
+            for (int i = 1; i <= 10; i++) {
                 System.out.println(x*i);
             }
         }
