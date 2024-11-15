@@ -6,7 +6,7 @@ public class ejercicios{
         System.out.println("Enter a whole number: ");
 
         int x = sc.nextInt();
-        
+
         int[] arreglo = new int[contador(x)];
 
         System.out.println("The value entered is: " + x);
@@ -17,15 +17,17 @@ public class ejercicios{
         }
 
         int p=0;
-        for (int i = 2; i <= (x/2); i++) {
+        for (int i = 2; i <= Math.sqrt(x); i++) {
             if (x % i == 0){
             p=p+1;
+            break;
             }
         }
         if (p == 0){
             System.out.println(x + " It's a prime number");
+            System.out.println("The first 10 multiplies are: ");
             for (int i = 1; i <= 10; i++) {
-                System.out.println(x*i);
+                System.out.println(i + ". "+ x*i);
             }
         }
         else {
@@ -41,8 +43,12 @@ public class ejercicios{
             for (int i = 0; i < arreglo.length; i++) {
                 System.out.print(arreglo[i]+ " ");
             }
+            
         }
      
+
+        
+        
     }
     }
 
@@ -56,3 +62,4 @@ public class ejercicios{
         return contador;
     }
 }
+
