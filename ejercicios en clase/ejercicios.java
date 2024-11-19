@@ -10,6 +10,7 @@ public class ejercicios{
         int[] arreglo = new int[contador(x)];
 
         System.out.println("The value entered is: " + x);
+        
         if (x%2==0){
             System.out.println("The number entered is even ");
         } else {
@@ -45,9 +46,6 @@ public class ejercicios{
             }
             
         }
-     
-
-        
         
     }
     }
