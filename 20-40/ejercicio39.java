@@ -2,23 +2,23 @@ import java.util.Scanner;
 
 public class ejercicio39 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Ingresa una distancia (número entero positivo):");
+            int distancia = scanner.nextInt();
 
-        System.out.println("Ingresa una distancia (número entero positivo):");
-        int distancia = scanner.nextInt();
+            System.out.println("Ingresa la cantidad de puntos:");
+            int cantidadPuntos = scanner.nextInt();
 
-        System.out.println("Ingresa la cantidad de puntos:");
-        int cantidadPuntos = scanner.nextInt();
+            double intervalo = (double) distancia / (cantidadPuntos - 1);
 
-        double intervalo = (double) distancia / (cantidadPuntos - 1);
+            System.out.println("Punto origen = 0");
+            System.out.println("Punto destino = " + distancia);
+            System.out.println("Lista de puntos generados:");
 
-        System.out.println("Punto origen = 0");
-        System.out.println("Punto destino = " + distancia);
-        System.out.println("Lista de puntos generados:");
-
-        for (int i = 0; i < cantidadPuntos; i++) {
-            double punto = i * intervalo;
-            System.out.println(punto);
+            for (int i = 0; i < cantidadPuntos; i++) {
+                double punto = i * intervalo;
+                System.out.println(punto);
+            }
         }
     }
 }
