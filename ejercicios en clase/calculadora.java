@@ -1,60 +1,84 @@
-import java.util.Scanner;
-public class calculadora {
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+
+public class calculadora implements ActionListener {
+    private JTextField textField;
+    private double num1 = 0;
+    private double num2 = 0;
+    private String operator = "";
+
     public static void main(String[] args) {
-        try (Scanner sc = new Scanner(System.in)) {
-			System.out.println("Hello welcome, to the most amazing calculator.");
-            System.out.println(" ");
-            System.out.println("Las operaciones disponibles son");
-            System.out.println("1. Suma");
-            System.out.println("2. Resta");
-            System.out.println("3. Multiplicacion");
-            System.out.println("4. Division");
-            System.out.println("5. Potencia");
-            System.out.println(" ");
-            System.out.println("Seleciona alguna opcion");
+        new calculadora().createGUI();
+    }
 
-            int valor = sc.nextInt();
+    public void createGUI() {
+        // Ventana
+        JFrame frame = new JFrame("Calculadora en Java, papa");
+        frame.setSize(400, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new GridLayout(2, 1));
 
-            System.out.println("Escriba un numero");
-			Double num1 = sc.nextDouble();
-			System.out.println("Escriba un numero");
-			Double num2 = sc.nextDouble();
-            
-            switch (valor) {
-                case 1 -> System.out.println("Su resultado es " + suma(num1, num2) );
+        textField = new JTextField();
+        textField.setFont(new Font("Arial", Font.BOLD, 24));
+        textField.setHorizontalAlignment(JTextField.RIGHT);
+        frame.add(textField);
 
-                case 2 -> System.out.println("Su resultado es " + resta(num1, num2) );
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 4, 10, 10));
+        panel.setBackground(Color.DARK_GRAY);
 
-                case 3 -> System.out.println("Su resultado es " + Multiplicacion(num1, num2) );
+        String[] buttonLabels = {
+            "7", "8", "9", "/",
+            "4", "5", "6", "*",
+            "1", "2", "3", "-",
+            "0", ".", "=", "+"
+        };
 
-                case 4 -> System.out.println("Su resultado es " + Division(num1, num2) );
+        for (String label : buttonLabels) {
+            JButton button = new JButton(label);
+            button.setFont(new Font("Arial", Font.BOLD, 20));
+            button.setBackground(Color.LIGHT_GRAY);
+            button.setForeground(Color.BLACK);
+            button.setBorder(new LineBorder(Color.BLACK, 2));
+            button.addActionListener(this);
+            panel.add(button);
+        }
 
-                case 5 -> System.out.println("Su resultado es " + potencia(num1, num2));
+        frame.add(panel);
+        frame.setVisible(true);
+    }
 
-                default -> {
-                    System.out.println("Resultado invalido");
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        if (command.charAt(0) >= '0' && command.charAt(0) <= '9' || command.equals(".")) {
+            textField.setText(textField.getText() + command);
+        } else if (command.equals("=")) {
+            num2 = Double.parseDouble(textField.getText());
+            switch (operator) {
+                case "+" -> textField.setText(String.valueOf(num1 + num2));
+                case "-" -> textField.setText(String.valueOf(num1 - num2));
+                case "*" -> textField.setText(String.valueOf(num1 * num2));
+                case "/" -> {
+                    if (num2 == 0) {
+                        textField.setText("Error: Div/0");
+                    } else {
+                        textField.setText(String.valueOf(num1 / num2));
+                    }
                 }
             }
-		}
-    }
-    public static double suma(double n1, double n2) {
-        double resultado = n1 + n2;
-        return resultado;
-    }
-    public static double resta(double n1, double n2) {
-        double resultado = n1 - n2;
-        return resultado;
-    }
-    public static double Multiplicacion(double n1, double n2) {
-        double resultado = n1 * n2;
-        return resultado;
-    }
-    public static double Division(double n1, double n2) {
-        double resultado = n1 / n2;
-        return resultado;
-    }
-    public static double potencia (double n1, double n2) {
-        double resultado = Math.pow(n1, n2);
-        return resultado;
+        } else {
+            num1 = Double.parseDouble(textField.getText());
+            operator = command;
+            textField.setText("");
+        }
     }
 }
