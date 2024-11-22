@@ -2,53 +2,34 @@ import java.util.Scanner;
 
 public class arreglo {
     public static void main(String[] args) {
-        String[] tablasArriba = new String[5];
-        String[] tablasAbajo = new String[5];
         Scanner sc = new Scanner(System.in);
+        int[] numeros = new int[10]; 
 
-        int indexArriba = 0;
-        int indexAbajo = 0;
-
-        while (indexArriba < 5 || indexAbajo < 5) {
-            System.out.println("Escriba un número para la tabla de multiplicar: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Escriba un número para la tabla de multiplicar (" + (i + 1) + "/10): ");
             int tabla = sc.nextInt();
-            tabla = Math.abs(tabla);  
-            System.out.println("El valor absoluto de su número es: " + tabla);
+            numeros[i] = Math.abs(tabla); 
+        }
 
-            StringBuilder tablaResultado = new StringBuilder();
-            if (tabla == 0) {
-                tablaResultado.append("Todo número multiplicado por cero es cero.\n");
-            } else {
-                for (int i = 1; i <= 10; i++) {
-                    tablaResultado.append(tabla)
-                                  .append(" * ")
-                                  .append(i)
-                                  .append(" = ")
-                                  .append(tabla * i)
-                                  .append("\n");
+        System.out.println("\n===== Tablas de Multiplicar =====\n");
+
+        for (int fila = 0; fila < 2; fila++) {
+            for (int multiplicador = 1; multiplicador <= 10; multiplicador++) {
+                for (int columna = 0; columna < 5; columna++) {
+                    int indice = fila * 5 + columna; 
+                    int numero = numeros[indice]; 
+                    if (numero == 0) {
+                        System.out.print("Todo número * 0 = 0\t\t"); 
+                    } else {
+                        System.out.print(numero + " * " + multiplicador + " = " + (numero * multiplicador) + "\t");
+                    }
                 }
+                System.out.println(); 
             }
-
-            if (indexArriba < 5) {
-                tablasArriba[indexArriba] = tablaResultado.toString();
-                indexArriba++;
-            } else if (indexAbajo < 5) {
-                tablasAbajo[indexAbajo] = tablaResultado.toString();
-                indexAbajo++;
-            }
+            System.out.println(); 
         }
 
-        System.out.println("===== Tablas Arriba =====");
-        for (String tabla : tablasArriba) {
-            System.out.println(tabla);
-        }
-
-        System.out.println("===== Tablas Abajo =====");
-        for (String tabla : tablasAbajo) {
-            System.out.println(tabla);
-        }
-
-        System.out.println("Programa finalizado. Has ingresado 10 tablas de multiplicar.");
+        System.out.println("Programa finalizado.");
         sc.close();
     }
 }
