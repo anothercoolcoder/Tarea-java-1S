@@ -12,10 +12,9 @@ public class arreglo {
         while (indexArriba < 5 || indexAbajo < 5) {
             System.out.println("Escriba un número para la tabla de multiplicar: ");
             int tabla = sc.nextInt();
-            tabla = Math.abs(tabla);  // Tomamos el valor absoluto
+            tabla = Math.abs(tabla);  
             System.out.println("El valor absoluto de su número es: " + tabla);
 
-            // Crear la tabla de multiplicar con formato vertical
             StringBuilder tablaResultado = new StringBuilder();
             if (tabla == 0) {
                 tablaResultado.append("Todo número multiplicado por cero es cero.\n");
@@ -30,7 +29,6 @@ public class arreglo {
                 }
             }
 
-            // Asignar la tabla a tablasArriba o tablasAbajo según los índices
             if (indexArriba < 5) {
                 tablasArriba[indexArriba] = tablaResultado.toString();
                 indexArriba++;
@@ -40,13 +38,11 @@ public class arreglo {
             }
         }
 
-        // Mostrar las tablas arriba
         System.out.println("===== Tablas Arriba =====");
         for (String tabla : tablasArriba) {
             System.out.println(tabla);
         }
 
-        // Mostrar las tablas abajo
         System.out.println("===== Tablas Abajo =====");
         for (String tabla : tablasAbajo) {
             System.out.println(tabla);
