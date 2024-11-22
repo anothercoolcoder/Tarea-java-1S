@@ -9,6 +9,7 @@ public class ejercicio22 {
                     System.out.println("Primera iteracion (Hola mundo)");
                 else
                     System.out.println("Iteracion, " + i);
+                    
         }
     }
 }

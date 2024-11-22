@@ -3,25 +3,25 @@ import java.util.Scanner;
 public class arreglo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] numeros = new int[10]; 
+        int[] numbers = new int[10]; 
 
         for (int i = 0; i < 10; i++) {
-            System.out.println("Escriba un número para la tabla de multiplicar (" + (i + 1) + "/10): ");
-            int tabla = sc.nextInt();
-            numeros[i] = Math.abs(tabla); 
+            System.out.println("Write one number for: (" + (i + 1) + "/10): ");
+            int table = sc.nextInt();
+            numbers[i] = Math.abs(table);
         }
 
-        System.out.println("\n===== Tablas de Multiplicar =====\n");
+        System.out.println("\n Multiplication tables \n");
 
-        for (int fila = 0; fila < 2; fila++) {
-            for (int multiplicador = 1; multiplicador <= 10; multiplicador++) {
-                for (int columna = 0; columna < 5; columna++) {
-                    int indice = fila * 5 + columna; 
-                    int numero = numeros[indice]; 
-                    if (numero == 0) {
-                        System.out.print("Todo número * 0 = 0\t\t"); 
+        for (int row = 0; row < 2; row++) {
+            for (int multiplier = 1; multiplier <= 10; multiplier++) {
+                for (int column = 0; column < 5; column++) {
+                    int indice = row * 5 + column; 
+                    int number = numbers[indice]; 
+                    if (number == 0) {
+                        System.out.print("Any number * 0 = 0\t\t"); 
                     } else {
-                        System.out.print(numero + " * " + multiplicador + " = " + (numero * multiplicador) + "\t");
+                        System.out.print(number + " * " + multiplier + " = " + (number * multiplier) + "\t");
                     }
                 }
                 System.out.println(); 
@@ -29,7 +29,7 @@ public class arreglo {
             System.out.println(); 
         }
 
-        System.out.println("Programa finalizado.");
+        System.out.println("End of program.");
         sc.close();
     }
 }
