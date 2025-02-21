@@ -28,6 +28,10 @@ public class Vista {
         byte cap = sc.nextByte();
         System.out.println("Nivel del tanque: (En galones)");
         byte nivel = sc.nextByte();
+        while (nivel > cap || nivel < 0){
+            System.out.println("El nivel del tanque no puede ser mayor que la capacidad del tanque, intentelo de nuevo: ");
+            nivel = sc.nextByte();
+        }
 
         //Creando el vehículo
         Vehiculo veh1 = new Vehiculo(cap, nivel,tipo);
@@ -36,6 +40,9 @@ public class Vista {
         System.out.println("Nivel actual del tanque: "+veh1.getNivel());
         System.out.println("Tipo : "+veh1.getTipo());
 
+        //Diferencia
+        int diferencia = veh1.getCapacidad() - veh1.getNivel();
+        System.out.print("la diferencia entre el nivel del combustible y la capacidad total, es " + diferencia);
         //Tanqueo
         System.out.println("¿Como desea tanquear su vehiculo?");
         System.out.println("1. Lleno");
@@ -44,7 +51,12 @@ public class Vista {
         if (tanqueo == 1){
             System.out.println("El vehiculo se ha tanqueado completamente, thx");
         }else{
-            System.out.println("El vehiculo se ha tanqueado parcialmente, thx");
+            System.out.println("¿Cuanto desea llenar?");
+            byte tanqueoParcial = sc.nextByte();
+            while (tanqueoParcial >= diferencia || tanqueoParcial < 0){
+                System.out.println("El valor tiene que ser menor a la diferencia total, porque sino seria un tanqueo total y no puede ser cero ni negativo.");
+                tanqueoParcial = sc.nextByte();
+            }
         }
     }
 }
