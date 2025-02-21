@@ -39,7 +39,7 @@ public class Vista {
         //Tanqueo
         System.out.println("¿Como desea tanquear su vehiculo?");
         System.out.println("1. Lleno");
-        System.out.println("2. Parcial");
+        System.out.println("2. Parcial.");
         byte tanqueo = sc.nextByte();
         if (tanqueo == 1){
             System.out.println("El vehiculo se ha tanqueado completamente");
