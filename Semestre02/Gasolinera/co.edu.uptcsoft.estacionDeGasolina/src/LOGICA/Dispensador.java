@@ -66,7 +66,7 @@ public class Dispensador {
             System.out.println("El vehiculo se ha tanqueado completamente, thx");
         }else{
             System.out.println("¿Cuanto desea llenar?");
-            byte tanqueoParcial = sc.nextByte();
+            int tanqueoParcial = sc.nextByte();
             while (tanqueoParcial >= diferencia || tanqueoParcial < 0){
                 System.out.println("El valor tiene que ser menor a la diferencia total, porque sino seria un tanqueo total y no puede ser cero ni negativo.");
                 tanqueoParcial = sc.nextByte();
