@@ -42,7 +42,7 @@ public class Vista {
         System.out.println("2. Parcial.");
         byte tanqueo = sc.nextByte();
         if (tanqueo == 1){
-            System.out.println("El vehiculo se ha tanqueado completamente");
+            System.out.println("El vehiculo se ha tanqueado completamente, thx");
         }else{
             System.out.println("El vehiculo se ha tanqueado parcialmente, thx");
         }
