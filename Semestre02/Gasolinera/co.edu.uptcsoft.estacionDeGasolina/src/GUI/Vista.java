@@ -44,7 +44,7 @@ public class Vista {
         if (tanqueo == 1){
             System.out.println("El vehiculo se ha tanqueado completamente");
         }else{
-            System.out.println("El vehiculo se ha tanqueado parcialmente");
+            System.out.println("El vehiculo se ha tanqueado parcialmente, thx");
         }
     }
 }
