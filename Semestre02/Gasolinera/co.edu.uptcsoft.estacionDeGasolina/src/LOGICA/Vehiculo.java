@@ -1,20 +1,11 @@
 package LOGICA;
 
 public class Vehiculo {
-    private byte capacidad, nivel, tipo, tanqueoParcial;
+    private byte capacidad, nivel, tanqueoParcial;
 
-    public Vehiculo(byte capacidad, byte nivel, byte tipo) {
+    public Vehiculo(byte capacidad, byte nivel) {
         setCapacidad(capacidad);
         setNivel(nivel);
-        setTipo(tipo);
-    }
-
-    public byte getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(byte tipo) {
-        this.tipo = tipo;
     }
 
     public void setCapacidad(byte capacidad) {
